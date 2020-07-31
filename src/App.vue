@@ -1,15 +1,26 @@
 <template>
-  {{data.map((el) => el.rn)}}
-  {{data.map((el) => el.bn)}}
-  {{data.map((el) => el.gn)}}
+  <div>
+    <Chart
+      :red="data.map(el => el.rn)"
+      :blue="data.map(el => el.bn)"
+      :green="data.map(el => el.gn)"
+    />
+  </div>
 </template>
 
 <script>
+import Chart from "./components/Chart.vue";
 export default {
   name: "App",
+  components: {
+    Chart,
+  },
   data() {
     return {
       data: [],
+      red: [],
+      blue: [],
+      green: [],
     };
   },
   mounted() {
